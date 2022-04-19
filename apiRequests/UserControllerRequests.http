@@ -1,1 +1,1 @@
-GET {{url}}/
+GET http://localhost:8080/student/rohan@gmail.co
