@@ -1,11 +1,18 @@
 package dev.rohit.mysqlconnectiondemo.entities;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
+
 @Entity
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="students")
 public class Student {
     @Id
@@ -18,4 +25,8 @@ public class Student {
 
     @Column(name="email")
     private String email;
+
+    @JoinColumn(name="course_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    private Course course;
 }

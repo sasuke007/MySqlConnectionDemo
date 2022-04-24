@@ -14,4 +14,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query(name = QueryUtil.GET_STUDENT_BY_NAME)
     Optional<Student> findStudentByEmail(@Param("email") String email);
+
+    void deleteById(Long id);
 }
